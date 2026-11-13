@@ -95,21 +95,14 @@ def calc_input(state: InventoryState) -> Page:
 
 @route
 def calc_result(state: InventoryState, c1: str, c2: str, v2: str) -> Page:
-    message = "Calculation complete."
     
-    if c1 == "":
-        message = "Please enter an initial concentration."
-        
-    elif c2 == "":
-        message = "Please enter a target concentration."
+    v1 = (float(c2) * float(v2)) / float(c1)
     
-    else:
-        state.calc_hist.append("Successfully ran with C1 = " + c1)
-        message = "Calculation logged."
-        
+    state.calc_hist.append("Calculated V1: " + str(v1) + " mL")
+    
     return Page(state, [
-        Header("Result"),
-        Paragraph(message),
+        Header("Dilution Result"),
+        Paragraph("Required Stock Volume (V1): " + str(v1) + " mL"),
         Button("Calculate Another", calc_input),
         Button("Home", index) ])
 
@@ -139,9 +132,9 @@ set_website_title("Lab Inventory & Dilution Calculator")
 set_site_information(
     author="Ambrose",
     description="A web app for tracking chemistry lab solutions and calculating dilutions.",
-    sources=[],
-    planning=["design.docx", "problem.docx"],
-    links=["https://github.com/amb-d/Lab-Inventory-Dilution-Calculator"]
+    sources=["Drafter docs"],
+    planning=[],
+    links=["https://github.com/amb-d/Lab-Inventory-&-Dilution-Calculator"]
     )
 hide_debug_information()
 set_website_framed(False)

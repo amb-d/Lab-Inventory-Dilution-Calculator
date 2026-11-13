@@ -139,7 +139,7 @@ set_website_title("Lab Inventory & Dilution Calculator")
 set_site_information(
     author="Ambrose",
     description="A web app for tracking chemistry lab solutions and calculating dilutions.",
-    sources=["Drafter docs"],
+    sources=[],
     planning=["design.docx", "problem.docx"],
     links=["https://github.com/amb-d/Lab-Inventory-&-Dilution-Calculator"]
     )
